@@ -1,0 +1,76 @@
+> Ostania 
+----------
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+	address 10.48.1.1
+	netmask 255.255.255.0
+
+auto eth2
+iface eth2 inet static
+	address 10.48.2.1
+	netmask 255.255.255.0
+
+auto eth3
+iface eth3 inet static
+	address 10.48.3.1
+	netmask 255.255.255.0
+
+> SSS 
+----------
+auto eth0
+iface eth0 inet dhcp
+
+> Garden
+----------
+auto eth0
+iface eth0 inet dhcp
+
+> WISE 
+----------
+auto eth0
+iface eth0 inet static
+	address 10.48.2.2
+	netmask 255.255.255.0
+	gateway 10.48.2.1
+
+> Berlint
+----------
+auto eth0
+iface eth0 inet static
+	address 10.48.2.3
+	netmask 255.255.255.0
+	gateway 10.48.2.1
+
+> Westalis
+----------
+auto eth0
+iface eth0 inet static
+	address 10.48.2.4
+	netmask 255.255.255.0
+	gateway 10.48.2.1
+
+> Eden
+----------
+auto eth0
+iface eth0 inet dhcp
+hwaddress ether 3e:96:21:e3:73:e3
+
+> NewstonCastle
+----------
+auto eth0
+iface eth0 inet static
+	address 10.48.3.3
+	netmask 255.255.255.0
+	gateway 10.48.3.1
+
+> KemonoPark
+----------
+auto eth0
+iface eth0 inet static
+	address 10.48.3.4
+	netmask 255.255.255.0
+	gateway 10.48.3.1
+
