@@ -1,6 +1,9 @@
+# Jarkom-Modul-3-ITB07-2022
+Repositori ini berisi dokumentasi pengerjaan soal shit modul 3 Praktikum Mata Kuliah Jaringan Komputer
 # Jarkom-Modul-3-ITB07-2022     
 ### Laporan Resmi Pengerjaan Sesi Lab Jaringan Komputer     
         
+
 #### Nama Anggota Kelompok :      
 1. 5027201004 Alda Risma Harjian 
 2. 5027201042 Ilham Muhammad Sakti 
