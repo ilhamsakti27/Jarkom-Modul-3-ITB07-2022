@@ -210,3 +210,67 @@ subnet 10.48.3.0 netmask 255.255.255.0 {
 }
 ```
 Dengan begitu kita telah menentukan ip range  dengan menambahkan `range  10.48.3.30 10.48.3.50;`pada subnet interface switch 3 yang terhubung ke fosha pada eth3
+
+### Soal 5
+Client mendapatkan DNS dari WISE dan client dapat terhubung dengan internet melalui DNS tersebut.
+
+### Jawaban Soal 5
+Untuk client mendapatkan DNS dari EniesLobby diperlukan konfigurasi pada file `/etc/dhcp/dhcpd.conf` dengan `option domain-name-servers 10.45.2.2;`
+
+Supaya semua client dapat terhubung internet pada EniesLobby diberikan konfigurasi pada file `/etc/bind/named.conf.options` dengan
+```
+echo "
+options {
+        directory \"/var/cache/bind\";
+        forwarders {
+                8.8.8.8;
+                8.8.8.4;
+        };
+        // dnssec-validation auto;
+        allow-query { any; };
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
+};
+"
+```
+### Testing
+
+### Soal 6
+Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 selama 5 menit sedangkan pada client yang melalui Switch3 selama 10 menit. Dengan waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 115 menit.
+
+### Jawaban Soal 6
+Pada subnet interface switch 1 dan 3 ditambahkan konfigurasi berikut pada file `/etc/dhcp/dhcpd.conf`
+```
+subnet 10.48.1.0 netmask 255.255.255.0 {
+    ...
+    default-lease-time 360; 
+    max-lease-time 7200;
+    ...
+}
+subnet 10.48.3.0 netmask 255.255.255.0 {
+    ...
+    default-lease-time 720;
+    max-lease-time 7200;
+    ...
+}
+```
+
+### Soal 7
+Loid dan Franky berencana menjadikan Eden sebagai server untuk pertukaran informasi dengan alamat IP yang tetap dengan IP [prefix IP].3.13
+
+### Jawaban Soal 7
+Menambahkan konfigurasi untuk fixed address pada `/etc/dhcp/dhcpd.conf`
+```
+host Eden {
+    hardware ethernet 3e:96:21:e3:73:e3;
+    fixed-address 10.48.3.13;
+}
+```
+Setelah itu tidak lupa untuk mengganti konfigurasi pada file `/etc/network/interfaces` dengan
+```
+auto eth0
+iface eth0 inet dhcp
+hwaddress ether be:c0:ff:37:bb:09
+```
+
+## *Kendala*
