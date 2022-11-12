@@ -197,6 +197,8 @@ subnet 10.48.1.0 netmask 255.255.255.0 {
 Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.10 - [prefix IP].3.30 dan [prefix IP].3.60 - [prefix IP].3.85
 
 ### Jawaban Soal 4    
+[Westalis]
+
 Lakukan konfigurasi untuk rentang IP yang akan diberikan pada file  `/etc/dhcp/dhcpd.conf` dengan cara menambahkan konfigurasi berikut ini 
 ```
 subnet 10.48.3.0 netmask 255.255.255.0 {
@@ -209,15 +211,19 @@ subnet 10.48.3.0 netmask 255.255.255.0 {
     max-lease-time 6900;
 }
 ```
-Dengan begitu kita telah menentukan ip range  dengan menambahkan `range  10.48.3.30 10.48.3.50;`pada subnet interface switch 3 yang terhubung ke fosha pada eth3
+Dengan begitu kita telah menentukan ip range  dengan menambahkan `range  10.48.3.10 10.48.3.30;` dan `range  10.48.3.60 10.48.3.85;` pada subnet interface switch 3 yang terhubung ke fosha pada eth3.
 
 ### Soal 5
 Client mendapatkan DNS dari WISE dan client dapat terhubung dengan internet melalui DNS tersebut.
 
 ### Jawaban Soal 5
-Untuk client mendapatkan DNS dari EniesLobby diperlukan konfigurasi pada file `/etc/dhcp/dhcpd.conf` dengan `option domain-name-servers 10.45.2.2;`
+[Westalis]
 
-Supaya semua client dapat terhubung internet pada EniesLobby diberikan konfigurasi pada file `/etc/bind/named.conf.options` dengan
+Untuk client mendapatkan DNS dari WISE diperlukan konfigurasi pada file `/etc/dhcp/dhcpd.conf` dengan `option domain-name-servers 10.48.2.2;`
+
+[WISE]
+
+Supaya semua client dapat terhubung internet pada WISE diberikan konfigurasi pada file `/etc/bind/named.conf.options` dengan
 ```
 echo "
 options {
@@ -234,6 +240,33 @@ options {
 "
 ```
 ### Testing
+Dengan mengkonfigurasi DHCP server dan DHCP Relay seluruh Client yang berada pada subnet interface switch 1 dan switch 3 akan otomatis mendapatkan IP pada rentang yang telah dikonfigurasi. Untuk contohnya adalah sebagai berikut:
+
+**SSS**
+
+![test ip sss](./image/nomorLimaSSS.png)
+
+**Garden**
+
+![test ip garden](./image/nomorLimaGarden.png)
+
+**Eden**
+
+![test ip eden](./image/nomorLimaEden.png)
+
+testing connect internet
+
+**SSS**
+
+![test internet sss](./image/nomorLimaSSSInternet.png)
+
+**Garden**
+
+![test ip garden](./image/nomorLimaGardenInternet.png)
+
+**Eden**
+
+![test ip eden](./image/nomorLimaEdenInternet.png)
 
 ### Soal 6
 Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 selama 5 menit sedangkan pada client yang melalui Switch3 selama 10 menit. Dengan waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 115 menit.
