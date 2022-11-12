@@ -47,7 +47,7 @@ apt-get install isc-dhcp-server -y
 
 Kami juga sudah membuat topologi
 
-![Topologi](./image/topologi.png)
+![Topologi](./image/topology.png)
 
 Untuk konfigurasi setiap nodenya adalah sebagai berikut
 
