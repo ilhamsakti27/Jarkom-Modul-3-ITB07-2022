@@ -211,7 +211,7 @@ subnet 10.48.3.0 netmask 255.255.255.0 {
     max-lease-time 6900;
 }
 ```
-Dengan begitu kita telah menentukan ip range  dengan menambahkan `range  10.48.3.10 10.48.3.30;` dan `range  10.48.3.60 10.48.3.85;` pada subnet interface switch 3 yang terhubung ke fosha pada eth3.
+Dengan begitu kita telah menentukan ip range  dengan menambahkan `range  10.48.3.10 10.48.3.30;` dan `range  10.48.3.60 10.48.3.85;` pada subnet interface switch 3 yang terhubung ke Ostania pada eth3.
 
 ### Soal 5
 Client mendapatkan DNS dari WISE dan client dapat terhubung dengan internet melalui DNS tersebut.
