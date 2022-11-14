@@ -280,14 +280,14 @@ Pada subnet interface switch 1 dan 3 ditambahkan konfigurasi berikut pada file `
 ```
 subnet 10.48.1.0 netmask 255.255.255.0 {
     ...
-    default-lease-time 360; 
-    max-lease-time 7200;
+    default-lease-time 300; 
+    max-lease-time 6900;
     ...
 }
 subnet 10.48.3.0 netmask 255.255.255.0 {
     ...
-    default-lease-time 720;
-    max-lease-time 7200;
+    default-lease-time 600;
+    max-lease-time 6900;
     ...
 }
 ```
@@ -532,3 +532,4 @@ Untuk dokumentasi yaitu sebagai berikut:
 ![](image/soal12.png)
 
 ## *Kendala*
+Sejauh ini tidak ada.
